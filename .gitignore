@@ -1,0 +1,7 @@
+.vscode
+.venv
+
+req
+
+test.py
+__pycache__
