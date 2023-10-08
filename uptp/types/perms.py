@@ -19,8 +19,7 @@ class Patient(BaseModel):
     first_name: str
     last_name: str
     username: str
-    id: int
-
+    userId: int
 
 
 class HealthCare(BaseModel):
