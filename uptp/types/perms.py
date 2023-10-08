@@ -1,6 +1,7 @@
 from enum import IntEnum
+from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
 
 
 class Perms(IntEnum):
@@ -8,16 +9,23 @@ class Perms(IntEnum):
     READ = 0
     EDIT = 1
     DELETE = 2
-    UNAUTHORIZED = -1
+    UNAUTHORIZED = -1  # Banned from API access
 
 
 class Patient(BaseModel):
     """basic structure for patient entity"""
-    name: str
     perms: int = Perms.EDIT + Perms.DELETE
+    display_name: Optional[str]
+    first_name: str
+    last_name: str
+    username: str
+    id: int
+
 
 
 class HealthCare(BaseModel):
     """basic structure for healthcare organization"""
     title: str
     perms: int = Perms.READ
+    owner: str
+    license: HttpUrl
