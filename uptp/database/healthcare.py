@@ -9,3 +9,10 @@ details to bbe adressed are:
             for softwares these organizations use to saave health record
         )
 """
+
+from uptp.database import MongoClient
+
+
+class HealthCareOrganizations:
+    def __init__(self) -> None:
+        self.collection = MongoClient.orgs["DSXT"]

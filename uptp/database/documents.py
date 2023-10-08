@@ -53,7 +53,7 @@ class Documents:
             return False
         await self.__vau.delete_one({'_idxs': file.ref, 'acs': access_hash})
         return await self.collection.delete_one({'doc': file.type, 'rsx': file.ref, "hsx": file.id})
-    
+
     async def edit(self, access_hash: int, encrpt_data: str, key: str, file: File):
         """ shorthand method to replace a document saved in warehouse
 
